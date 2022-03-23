@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <HelloWorld />
+    <HelloWorld v-if="displayScanner"/>
+    <div>
+      <button
+        @click="toggleScanner()">
+          TOGGLE SCANNER
+        </button>
+    </div>
   </div>
 </template>
 
@@ -12,6 +18,16 @@ export default {
   components: {
     HelloWorld,
   },
+  data() {
+    return {
+      displayScanner: true,
+    }
+  },
+  methods: {
+    toggleScanner() {
+      this.displayScanner = !this.displayScanner;
+    }
+  }
 };
 </script>
 
